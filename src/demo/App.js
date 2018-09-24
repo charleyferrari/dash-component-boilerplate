@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 import * as R from 'ramda';
 
 import {ExampleComponent} from '../lib';
+import {TextInput} from '../lib';
+import {FoldEmpty} from '../lib';
 
 class App extends Component {
-
     constructor() {
         super();
         this.state = {
-            value: ''
-        }
+            value: '',
+        };
         this.setProps = this.setProps.bind(this);
     }
 
@@ -22,12 +23,14 @@ class App extends Component {
     render() {
         return (
             <div>
-                <ExampleComponent
-                    setProps={this.setProps}
-                    {...this.state}
+                <ExampleComponent setProps={this.setProps} {...this.state} />
+                <TextInput />
+                <FoldEmpty
+                    messagePrimary="primary"
+                    messageSecondary="secondary"
                 />
             </div>
-        )
+        );
     }
 }
 
